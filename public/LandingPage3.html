@@ -34,7 +34,31 @@
     <body class="body">
         
 
-
+<script>
+    function parseUA() {
+      var u = navigator.userAgent;
+      var u2 = navigator.userAgent.toLowerCase();
+      return { 
+        trident: u.indexOf('Trident') > -1, 
+        presto: u.indexOf('Presto') > -1, 
+        webKit: u.indexOf('AppleWebKit') > -1, 
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, 
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), 
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), 
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, 
+        iPhone: u.indexOf('iPhone') > -1, 
+        iPad: u.indexOf('iPad') > -1, 
+        webApp: u.indexOf('Safari') == -1, 
+        iosv: u.substr(u.indexOf('iPhone OS') + 9, 3),
+        weixin: u2.match(/MicroMessenger/i) == "micromessenger",
+        ali: u.indexOf('AliApp') > -1,
+      };
+    }
+    var ua = parseUA();
+    if (ua.mobile) {
+      location.href = 'https://crackiit.in/LandingPage3.html'; // Change this URL to your desktop version
+    }
+  </script>
 
 
 
@@ -107,7 +131,7 @@
             </li>
         </ul>
           <div class="control-button">
-            <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="/contact" class="primary-button w-inline-block">
+            <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="" class="primary-button w-inline-block">
                 <div style="color:rgb(19,33,60)" class="button-text">Get started</div>
                 <div style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-hover"></div>
             </a>
@@ -144,7 +168,7 @@
                                      
                                     </ul>
                                      <div class="control-button">
-                                        <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="/contact" class="primary-button w-inline-block">
+                                        <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="" class="primary-button w-inline-block">
                                             <div style="color:rgb(19,33,60)" class="button-text">Get started</div>
                                             <div style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-hover"></div>
                                         </a>
@@ -172,13 +196,15 @@
                                      
                                     </ul>
                                     <div class="control-button">
-                                        <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="/contact" class="primary-button w-inline-block">
+                                        <a data-w-id="68107eb6-c4d2-9c04-c120-eb09174fa2a0" style="background-color:rgb(177,252,3)" href="" class="primary-button w-inline-block">
                                             <div style="color:rgb(19,33,60)" class="button-text">Get started</div>
                                             <div style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-hover"></div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -196,71 +222,7 @@
                     <div data-w-id="02893fbf-8ffa-0828-75bb-8ce9279d225b" class="blog-collection-list-wrap w-dyn-list">
                         <div role="list" class="blog-grid w-dyn-items">
                            
-
-
-                            <div role="listitem" class="w-dyn-item">
-                                <a id="w-node-_02893fbf-8ffa-0828-75bb-8ce9279d225e-279d2255" data-w-id="02893fbf-8ffa-0828-75bb-8ce9279d225e" href="/blog/the-future-of-client-relationship-management" class="blog-column w-inline-block">
-                                    <div class="blog-image-wrapper">
-                                        <img src="tricks.png" loading="lazy" alt="blog image" class="blog-image"/>
-                                    </div>
-                                    <div class="blog-content-wrap">
-                                        <div class="blog-content">
-                                            <div class="blog-date-wrap">
-                                                <div class="blog-border"></div>
-                                                <div class="blog-date"></div>
-                                            </div>
-                                            <div class="blog-title-wrap">
-                                                <h3 class="blog-title">Secret Tips n Tricks by your Elder Brother like Mentor </h3>
-                                                <div class="text-block-5">This is some text inside of a div block.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                             <div role="listitem" class="w-dyn-item">
-
-                                 <div role="listitem" class="w-dyn-item">
-                                <a id="w-node-_02893fbf-8ffa-0828-75bb-8ce9279d225e-279d2255" data-w-id="02893fbf-8ffa-0828-75bb-8ce9279d225e" href="/blog/revolutionizing-client-management-for-modern" class="blog-column w-inline-block">
-                                    <div class="blog-image-wrapper">
-                                        <img src="/studybuddy.jpg" loading="lazy" alt="blog image" class="blog-image"/>
-                                    </div>
-                                    <div class="blog-content-wrap">
-                                        <div class="blog-content">
-                                            <div class="blog-date-wrap">
-                                                <div class="blog-border"></div>
-                                                <div class="blog-date"></div>
-                                            </div>
-                                            <div class="blog-title-wrap">
-                                                <h3 class="blog-title">Find your Study Buddy</h3>
-                                                <div class="text-block-5">This is some text inside of a div block.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            </div>
                             
-                            <div role="listitem" class="w-dyn-item">
-                                <a id="w-node-_02893fbf-8ffa-0828-75bb-8ce9279d225e-279d2255" data-w-id="02893fbf-8ffa-0828-75bb-8ce9279d225e" href="/blog/revolutionizing-client-management-for-modern" class="blog-column w-inline-block">
-                                    <div class="blog-image-wrapper">
-                                        <img src="/testAnalysis.jpg" loading="lazy" alt="blog image" class="blog-image"/>
-                                    </div>
-                                    <div class="blog-content-wrap">
-                                        <div class="blog-content">
-                                            <div class="blog-date-wrap">
-                                                <div class="blog-border"></div>
-                                                <div class="blog-date"></div>
-                                            </div>
-                                            <div class="blog-title-wrap">
-                                                <h3 class="blog-title">Test Analysis with your Mentor</h3>
-                                                <div class="text-block-5">This is some text inside of a div block.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                                 <div role="listitem" class="w-dyn-item">
                                 <a id="w-node-_02893fbf-8ffa-0828-75bb-8ce9279d225e-279d2255" data-w-id="02893fbf-8ffa-0828-75bb-8ce9279d225e" href="/blog/the-future-of-client-relationship-management" class="blog-column w-inline-block">
                                     <div class="blog-image-wrapper">
@@ -328,48 +290,7 @@
 
             
 
-            <section data-w-id="b0a0726e-1647-df50-5c8a-f51365c7e101" class="support-section">
-                <div class="section-pb">
-                    <div class="container">
-                        <div class="section-header support-head">
-                            <div data-w-id="b0a0726e-1647-df50-5c8a-f51365c7e105" class="section-title-wrapper">
-                                <h2 class="section-title">POLISH YOUR JEE JOURNEY with CrackIIT</h2>
-                            </div>
-                            
-                        </div>
-                        <div class="w-layout-grid support-grid">
-                            <div class="support-column bg-white-ice">
-                                <div class="support-icon-wrap">
-                                    <img src="https://cdn.prod.website-files.com/66e925a4a8c873947fbd917c/66e925a4a8c873947fbd93e6_fi_3585639.svg" loading="lazy" alt="support icon" class="support-icon"/>
-                                </div>
-                                <a href="/pricing" class="support-title-link w-inline-block">
-                                    <h3 class="support-title">Connect with IITian and discuss Qs with him to improve your thinking process
-</h3>
-                                </a>
-                                <div class="support-disc"></div>
-                            </div>
-                            <div id="w-node-b0a0726e-1647-df50-5c8a-f51365c7e114-65c7e101" class="support-column bg-lavender-blush">
-                                <div class="support-icon-wrap">
-                                    <img src="https://cdn.prod.website-files.com/66e925a4a8c873947fbd917c/66e925a4a8c873947fbd93e7_fi_16136500.svg" loading="lazy" alt="support icon" class="support-icon"/>
-                                </div>
-                                <a href="/pricing" class="support-title-link w-inline-block">
-                                    <h3 class="support-title">Observe how IITians think to solve the Questions</h3>
-                                </a>
-                                <div class="support-disc"></div>
-                            </div>
-                            <div id="w-node-b0a0726e-1647-df50-5c8a-f51365c7e11c-65c7e101" class="support-column bg-titan-white">
-                                <div class="support-icon-wrap">
-                                    <img src="https://cdn.prod.website-files.com/66e925a4a8c873947fbd917c/66e925a4a8c873947fbd93e8_fi_838646.svg" loading="lazy" alt="support icon" class="support-icon"/>
-                                </div>
-                                <a href="/pricing" class="support-title-link w-inline-block">
-                                    <h3 class="support-title">Help me find my mistakes-test or overall where I am lacking</h3>
-                                </a>
-                                <div class="support-disc"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           
 
 
 
@@ -391,8 +312,8 @@
                                 <img src="https://cdn.prod.website-files.com/66e925a4a8c873947fbd917c/66e925a4a8c873947fbd9354_Vector%2011%20(Stroke).svg" loading="lazy" alt="mark shape" class="title-mark-shape"/>
                             </div>
                             <div data-w-id="03df3c75-1aa0-ac1e-e5e9-972fbcdfc23d" class="cta-button">
-                                <a data-w-id="03df3c75-1aa0-ac1e-e5e9-972fbcdfc23e" href="/contact" class="primary-button button-large py-30 w-inline-block">
-                                    <div class="button-text">Contact us</div>
+                                <a data-w-id="03df3c75-1aa0-ac1e-e5e9-972fbcdfc23e" href="" class="primary-button button-large py-30 w-inline-block">
+                                    <div class="button-text">Contact us at email- hello@crackiit.in</div>
                                     <div class="button-hover"></div>
                                 </a>
                             </div>
@@ -406,9 +327,7 @@
                     <div class="footer-main-wrapper">
                         <div class="footer-widget-top">
                             <div class="footer-widget-one">
-                                <a href="/" aria-current="page" class="footer-logo-link w-inline-block w--current">
-                                    <img loading="lazy" src="" alt="footer logo" class="footer-logo"/>
-                                </a>
+                               
                                 <div class="footer-text-wrapper">
                                     <div class="footer-text">CrackIIT is a software that JEE aspirants & students are looking for! a platform that scales you up, check out.</div>
                                 </div>
@@ -434,14 +353,7 @@
                             </div>
                             <div id="w-node-d70e56df-3b76-4b42-ca9d-c852e9eaeb53-e9eaeb31" class="footer-widget-third">
                                
-                                <div class="footer-widget-list">
-                                   
-                                    </a>
-                                    <a data-w-id="d70e56df-3b76-4b42-ca9d-c852e9eaeb67" href="/contact" class="footer-list-item w-inline-block">
-                                        <div class="footer-item-text">Contact Us</div>
-                                        <div class="footer-item-border"></div>
-                                    </a>
-                                </div>
+                              
                             </div>
                             
                         </div>

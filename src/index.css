@@ -14,6 +14,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+ root {
+  --color-dark: white;
+ }
 h2 {
   color: white !important; /* Overrides the `--color-dark` variable */
 }

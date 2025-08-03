@@ -1,68 +1,113 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header
-      className="top-0 left-0 w-full"
-      style={{
-        background: "rgba(0, 0, 0, 0)", // Transparent background
-        padding: "10px 250px", // Consistent padding for navbar height
-        color: "white", // Ensures text stands out
-        backdropFilter: "blur(10px)", // Adds a subtle blur effect
-        position: "relative", // Set navbar position to relative for absolute positioning of logo
-        height: "60px", // Fixed navbar height
-        width: "100%", // Ensure the header takes full width
-        boxSizing: "border-box", // Include padding in width calculation
-      }}
-    >
-      <div className="navbar-container w-full flex justify-between items-center" style={{ width: '100%' }}>
-        {/* Logo */}
-        <Link to="/" className="site-brand w-nav-brand" style={{ position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", paddingTop: "115px" }}>
-          <video
-            src="/crackiit.mp4"
-            className="site-logo"
-            alt="CrackIIT logo"
-            style={{
-              height: "180px", // Increase height of the logo
-              width: "auto", // Maintain aspect ratio
-              borderRadius: "50%", // Circular logo
-              objectFit: "cover", // Ensures proper cropping of video
-            }}
-            autoPlay
-            loop
-            muted
-          />
-        </Link>
+    <header className="bg-white shadow-md">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <span className="text-xl font-bold text-blue-600">HealthConnect</span>
+          </Link>
 
-        {/* Navigation Menu */}
-        <nav className="nav-menu flex justify-center items-center space-x-8">
-          <Link to="/" className="nav-link text-white hover:text-yellow-300">
-            Home
-          </Link>
-          <Link to="/about" className="nav-link text-white hover:text-yellow-300">
-            About
-          </Link>
-          <Link to="/mentors" className="nav-link text-white hover:text-yellow-300">
-            Mentor Booking
-          </Link>
-          <Link to="/pricing" className="nav-link text-white hover:text-yellow-300">
-            Courses
-          </Link>
-          <Link to="/studybuddy" className="nav-link text-white hover:text-yellow-300">
-            Study Buddy
-          </Link>
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link
+              to="/"
+              className={`text-gray-600 hover:text-blue-600 ${
+                location.pathname === '/' ? 'font-semibold text-blue-600' : ''
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/dashboard"
+              className={`text-gray-600 hover:text-blue-600 ${
+                location.pathname.startsWith('/dashboard') ? 'font-semibold text-blue-600' : ''
+              }`}
+            >
+              Dashboard
+            </Link>
+            <Link
+              to="/login"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Login
+            </Link>
+          </nav>
 
-        {/* Sign In Button */}
-        <Link
-          to="/login"
-          className="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-lg shadow-md hover:from-purple-800 hover:to-purple-600 transition duration-300 transform hover:scale-105"
-          style={{ position: "relative", left: "20px" }} // Move Sign-In button slightly to the right
-        >
-          Sign In
-        </Link>
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                to="/"
+                className={`text-gray-600 hover:text-blue-600 ${
+                  location.pathname === '/' ? 'font-semibold text-blue-600' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/dashboard"
+                className={`text-gray-600 hover:text-blue-600 ${
+                  location.pathname.startsWith('/dashboard') ? 'font-semibold text-blue-600' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/login"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
